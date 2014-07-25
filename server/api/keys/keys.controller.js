@@ -27,14 +27,20 @@ exports.create = function(req, res) {
     return res.json(201, keys);
   });
 };
+
+
 exports.addcv = function(req, res) {
     console.log("jvuj");
     if(req.body._id) { delete req.body._id; }
     Keys.findById(req.params.id, function (err, keys) {
         if (err) { return handleError(err); }
         if(!keys) { return res.send(404); }
+        keys.cv = _.merge(keys.cv, req.body.cv);
+        keys.save(function (err) {
+            if (err) { return handleError(err); }
+            return res.json(200, keys);
+        });
     });
-   Keys.findById(req.params.id).cv.insert(res);
 };
 // Updates an existing keys in the DB.
 exports.update = function(req, res) {

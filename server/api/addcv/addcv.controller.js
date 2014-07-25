@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Addcv = require('./addcv.model');
+var fs = require('fs');
 
 // Get list of addcvs
 exports.index = function(req, res) {
@@ -28,6 +29,15 @@ exports.create = function(req, res) {
   });
 };
 
+exports.upload = function(req, res){
+    fs.readFile(req.body, function (err, data) {
+        console.log(req.body);
+
+        fs.writeFile('cv.txt', req.body, function (err, data) {
+            return res.json(200,data);
+        });
+    });
+}
 // Updates an existing addcv in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }

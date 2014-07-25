@@ -58,7 +58,10 @@
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
-    <script src="bower_components/pdfjs/src/pdf.js"></script>
+    <script src="bower_components/pdf.js-master/src/pdf.js"></script>
+    <!--<script type="text/javascript" src="http://platform.linkedin.com/in.js">-->
+        <!--api_key: http://localhost:3333/772tzu7g6j5qqz-->
+    <!--</script>-->
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
@@ -68,7 +71,7 @@
           <!-- endinjector -->
         <!-- endbuild -->
     <script>
-    PDFJS.workerSrc = 'bower_components/pdfjs/src/worker_loader.js';
+    PDFJS.workerSrc = 'bower_components/pdf.js-master/src/worker_loader.js';
     </script>
 </body>
 </html>

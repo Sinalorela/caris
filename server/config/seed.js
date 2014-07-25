@@ -11,7 +11,7 @@ var Addcv = require('../api/addcv/addcv.model');
 
 Keys.find({}).remove(function(){
     Keys.create(
-        {  name:'C#', cv: [{ firstname: 'Andrei', surname: 'Lupu', pathname: 'ads'}]},{  name:'C'},{  name:'Java'},{  name:'Javascript'},{  name:'Python'},{  name:'Android'},
+        {  name:'C#'},{  name:'C'},{name:'Java'},{  name:'Android'},
         {  name:'ASP'},{  name:'Assembly'},{  name:'Cobol'},{  name:'Fortran'},{  name:'Haskell'},
         {  name:'JavaScript'},{  name:'Lisp'},{  name:'Lua'},{  name:'Objective C'},{  name:'PHP'},{  name:'Perl'},{  name:'Python'},
         {  name:'Ruby'},{  name:'SQL'},{  name:'Shell'},{  name:'Visual Basic'},{  name:'Linux'},{  name:'Unix'}
@@ -23,23 +23,28 @@ Addcv.find({}).remove(function() {
     Addcv.create({
         firstname: 'Andrei',
         surname: 'Lupu',
-        pathname: 'bun'
+        pathname: 'bun',
+        skills: 'bun la toate '
     }, {
         firstname: 'Andrei',
         surname: 'Lupu',
-        pathname: 'bun'
+        pathname: 'bun',
+        skills: 'bun la toate '
+    }, {
+        firstname: 'Cosmin',
+        surname: 'Sparhat',
+        pathname: 'bun',
+        skills: 'C# Cobol JavaScript Unix '
     }, {
         firstname: 'Andrei',
         surname: 'Lupu',
-        pathname: 'bun'
+        pathname: 'bun',
+        skills: 'java '
     }, {
         firstname: 'Andrei',
         surname: 'Lupu',
-        pathname: 'bun'
-    }, {
-        firstname: 'Andrei',
-        surname: 'Lupu',
-        pathname: 'bun'
+        pathname: 'bun',
+        skills: 'javascript '
     });
 });
 

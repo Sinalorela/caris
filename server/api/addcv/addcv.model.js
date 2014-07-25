@@ -6,7 +6,9 @@
     var AddcvSchema = new Schema({
         firstname:String,
         surname:String,
-        pathname: String
+        pathname: String,
+        skills: String,
+        keysref: [{ type: Schema.Types.ObjectId, ref: 'Keys'}]
     });
 
     module.exports = mongoose.model('Addcv', AddcvSchema);
