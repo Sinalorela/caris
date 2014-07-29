@@ -1,54 +1,55 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+    <div class="container1">
+        <h1>Welcome to CARIS</h1>
+        <p>The tool that gives passion</p>
+    </div>
+</header>
 
-<!--<header class="hero-unit" id="banner">-->
-<!--<div class="container">-->
-<!--<h1>Welcome to the world cup!</h1>-->
-<!--<p class="lead">Select some teams</p>-->
-<!--<img src="assets/images/football-icon.png" alt="I'm a ball">-->
-<!--</div>-->
-<!--</header>-->
-<p class="input-group">
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="bdy">
+<div class="boxat">
     <input type=" ng-pristine ng-valid" ng-model="searchedKey">
 
-</p>
-
-<div class="outer">
-    <!--<div class="scaling-image">-->
-    <div ng-repeat="key in keywords | filter:{name:searchedKey}" >
-        <input type="checkbox" ng-model="selectedKeys" ng-change="selectSkill(key.name)"> {{key.name}}</input>
-        <!--</div>-->
+    <div class="outer">
+        <!--<div class="scaling-image">-->
+        <div class="listKeys" ng-repeat="key in keywords | filter:{name:searchedKey}" >
+            <input type="checkbox" ng-model="selectedKeys" ng-change="selectSkill(key.name)"> {{key.name}}</input>
+            <!--</div>-->
+        </div>
     </div>
-    </input>
 </div>
-<div class="container">
-    <p class="input-group">
-        <input type="text" class="form-control" placeholder="Add text here." ng-model="searchedText">
-    <span class="input-group-btn">
-    <button type="submit" class="btn btn-primary" ng-click="findKeywords()">Search text</button>
-    </span>
-    </p>
+
+<div class="container1">
+<div>
     <div ng-repeat="key in foundKeys">
         <li><a href="#" >{{key.name}}
             <div ng-repeat="cvs in key.cv" > {{cvs.firstname}}</div></a></li>
     </div>
-    <button class="btn btn-primary" ng-click="deleteItAll()">delete all</button>
-    <p class="input-group">
-        <input type="text" class="form-control" placeholder="Search by Name." ng-model="searchedName">
-    <span class="input-group-btn">
-    <button type="submit" class="btn btn-primary" ng-click="searchNames()">Search</button>
-    </span>
-    </p>
+</div>
 
-    <div ng-repeat="cv in cvs  | filter:nameFilter" >
-        {{cv.firstname}} {{cv.surname}}
-        <!--</div>-->
-    </div>
-    <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)"multiple/>
-    <div class="boxat">
-        <div ng-repeat="cv in cvs | filter:skillsFilter">
-            {{cv.firstname}}       {{cv.surname}}       {{cv.skills}}
+
+    <div class="searchName">
+        <p class="input-group">
+            <input type="text" class="form-control" placeholder="Search by Name." ng-model="searchedName">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary" ng-click="searchNames()">Search</button>
+            </span>
+        </p>
+        <br>
+        <!--<button class="btn btn-primary" ng-click="deleteItAll()">delete all</button>-->
+        <div class="nameList" ng-repeat="cv in cvs  | filter:nameFilter" >
+            {{cv.firstname}} {{cv.surname}}
+            <!--</div>-->
+        </div>
+        <div class="cvSkils">
+            <div ng-repeat="cv in cvs | filter:skillsFilter">
+                {{cv.firstname}}       {{cv.surname}}       {{cv.skills}}
+            </div>
         </div>
     </div>
+
+
+
 
     <!--<div class="container">-->
     <!--<div class="row">-->
@@ -91,4 +92,4 @@
     <!--</form>-->
     <!--</div>-->
 </div>
-
+</div>

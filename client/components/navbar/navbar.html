@@ -1,20 +1,62 @@
 <div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">qwe</a>
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+
+            </button>
+
+        </div>
+        <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+                <li  ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+                    <a ng-href="{{item.link}}">{{item.title}}</a>
+                </li>
+                <li>
+                    <div ng-controller="ModalDemoCtrl">
+                        <script type="text/ng-template" id="myModalContent.html">
+                            <div class="modal-header">
+                                <h3></h3>
+                            </div>
+                            <div class="modal-body">
+                                <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)"multiple/>
+                                <!--<ul>-->
+                                    <!--<li ng-repeat="item in items">-->
+                                        <!--<a ng-click="selected.item = item">{{ item }}</a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                                <!--Selected: <b>{{ selected.item }}</b>-->
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" ng-click="ok()">OK</button>
+                                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                            </div>
+                        </script>
+
+                        <button  class="importBtn" ng-click="open()">Import</button>
+
+
+                    </div>
+                </li>
+                <!--<li ng-repeat="item in import" ng-class="{active: isActive(item.link)}">-->
+                    <!--<div id="inputButton" ng-controller="ModalDemoCtrl">-->
+                        <!--tInput!</button>-->
+                        <!--<div ng-show="selected">Selection from a modal: {{ selected }}</div>-->
+                    <!--</div>-->
+                    <!--<a ng-href="{{item.link}}">{{item.title}}</a></li>-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="navBar">
+                <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
+                <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+                <!--<li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().name }}</p> </li>-->
+                <!--<li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="glyphicon glyphicon-cog"></span></a></li>-->
+                <!--<li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>-->
+            </ul>
+
+
+        </div>
     </div>
-    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a ng-href="{{item.link}}">{{item.title}}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
 </div>
